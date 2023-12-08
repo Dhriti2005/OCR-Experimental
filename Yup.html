@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600&family=Montserrat:wght@200;400;500;600&display=swap" rel="stylesheet">
+   <link rel="icon" href=
+"your-icon"
+          type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR</title>
+    <style>
+        body {
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(225, 216, 255);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+        h2{
+            font-size: 30px;
+            font-weight: 600;
+            color: #343239;
+            font-family: inter;
+            position: fixed;
+            margin: 20px;
+
+        }
+        /* Navbar starts */
+        .navbar {
+             /* width: 13%; */
+            position: static; /*optional*/
+            background-color: #343239;
+            overflow: hidden;
+            margin-top: 5px;
+            border-radius: 30px;
+            margin: 12px;
+            display: flex;
+             /* width: 13%; */
+            /* justify-content: center; */
+            font-size: min(max(3vw), 1.3vh);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500
+;
+
+            -webkit-box-shadow: -1px 3px 35px -9px rgb(31, 31, 32);
+            -moz-box-shadow: -1px 3px 35px -9px rgba(171,169,194,1);
+            box-shadow: -1px 3px 35px -9px rgba(171,169,194,1);
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            margin-left: 15px;
+            padding: 14px 18px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: rgb(50, 255, 159);
+            border-radius: 2px;
+            transition: 0.5s;
+            text-shadow:   0px 0px 1px rgba(50, 255, 159, 0.342);
+        }
+/* Navbar ends */
+/* Dropping mechanism starts  */
+        .container {
+            font-family: 'Inter', sans-serif;
+            float: right; /* Remove this to center */
+            width: 50%; /* Set a specific width */
+            font-size: 16px;
+            height: 40vh;
+            margin-top: 0.61vh;
+            margin-left:0;
+            margin-right: 16px;
+            border-radius: 30px;
+            /* max-width: 800px; */
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 30px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+            height:25vh;
+        }
+      .bg{      /*  preview window */
+    float: right; /* Remove this to center */
+            width: 50%; 
+            height: 590px;/* Set a specific width */
+            margin-left:0;
+            margin-right: 16px;
+            border-radius: 30px;
+            /* max-width: 800px; */
+            margin-top: 27px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}/*  preview window ends */
+        .dragging {
+            background-color: #f0f0f0;
+        }
+
+        .drop-area:hover {
+            border-color: #666;
+        }
+        svg{
+            position: relative;
+            top: 30%;
+            align-items: center;
+        }
+        .file-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .drop-area:hover:before {
+         display: block;
+}
+            .file-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .file-list li {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .file-list li button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+@media screen and (max-width: 1181px) {
+    h2{
+        position: relative;
+    }
+            .container {
+                position: relative;
+                float: none; /* Remove the float property */
+                width: 91%;
+                margin-left: 12px;
+                margin-right: 12px; /* Center the container */
+            }
+            .bg{
+                position: relative;
+                float: none; /* Remove the float property */
+                width: 91%;
+                margin-left: 12px;
+                margin-right: 12px;
+            }
+            .navbar{
+                margin: none;
+                padding:0%;
+                justify-content: center;
+                display: flex;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            .container {
+                position: relative;
+                float: none; /* Remove the float property */
+                width: 84%;
+                margin-left: 12px;
+                margin-right: 12px; /* Center the container */
+            }
+            .bg {
+                position: relative;
+                float: none; /* Remove the float property */
+                width: 84%;
+                margin-left: 12px;
+                margin-right: 12px; /* Center the container */
+            }
+
+        }
+        @media screen and (max-height: 1680px),(max-width: 1250px) {
+            .container{
+                font-size: 14px;
+            }
+        }
+#upload-btn{
+margin: 4vh;
+}
+Button{
+    border-radius: 5px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* Mechanism ends */
+
+    </style>
+</head>
+    <div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</div>
+    <h2>Free PDF text extraction.<br>Multiple files and PDF are also accepted as input.</h2>
+<body>
+    <div class="container">            
+        <p>Drag and drop files here or click below to select files</p>
+            <!-- <input type="file" id="file-input" class="file-input" multiple> -->
+            <div class="drop-area">
+                <svg id="upload-btn" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="13" cy="13" r="12" stroke="#2B3F6C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8.5 13L17.5 13" stroke="#2B3F6C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13 8.5L13 17.5" stroke="#2B3F6C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>            
+        </div>
+        <ul class="file-list"></ul>
+             </div>
+             <div class="bg"></div>  
+    <script>
+         const dropArea = document.querySelector('.drop-area');
+        const fileList = document.querySelector('.file-list');
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.multiple = true;
+
+        dropArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropArea.classList.add('dragging');
+        });
+
+        dropArea.addEventListener('dragleave', (e) => {
+            dropArea.classList.remove('dragging');
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.classList.remove('dragging');
+            fileInput.files = e.dataTransfer.files;
+            handleFileUpload();
+        });
+
+        dropArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('input', () => {
+            handleFileUpload();
+        });
+
+        function handleFileUpload() {
+            let files = fileInput.files;
+            displayFiles(files);
+        }
+
+        function displayFiles(files) {
+            fileList.innerHTML = '';
+            for (let i = 0; i < files.length; i++) {
+                let li = document.createElement('li');
+                li.textContent = files[i].name;
+
+                let removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.addEventListener('click', () => {
+                    li.remove();
+                });
+
+                li.appendChild(removeButton);
+                fileList.appendChild(li);
+            }
+        }
+  </script>
+</body>
+</html>
